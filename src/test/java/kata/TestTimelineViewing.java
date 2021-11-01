@@ -18,8 +18,19 @@ public class TestTimelineViewing {
 	
 	@Test
 	public void userCanViewTimelineMessages() {
-		timelineManager.publish(user, new Message("I love the weather today."));
+		publishMessage("I love the weather today.");
 		assertEquals("I love the weather today.", timelineManager.getTimeline(user).getMessages().get(0).getMessage());
 	}
-
+	
+	@Test
+	public void userViewsMessagesFromTimelineAsMostRecentlyPosted() {
+		publishMessage("First Post - should return second.");
+		publishMessage("Second Post - should return first.");
+		assertEquals("Second Post - should return first.", timelineManager.getTimeline(user).getMessages().get(0).getMessage());
+		assertEquals("First Post - should return second.", timelineManager.getTimeline(user).getMessages().get(1).getMessage());
+	}
+	
+	private void publishMessage(String message) {
+		timelineManager.publish(user, new Message(message));
+	}
 }
