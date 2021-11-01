@@ -2,13 +2,20 @@ package kata;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TestTimelinePublishing {
 	
+	User user;
+	
+	@BeforeEach
+	public void before() {
+		user = new User("Alice");
+	}
+	
 	@Test
 	public void newUserReturnsName() {
-		User user = new User("Alice");
 		assertEquals("Alice", user.getName());
 	}
 	
@@ -20,7 +27,6 @@ public class TestTimelinePublishing {
 	
 	@Test
 	public void oneMessageIsReturnedWhenUserPublishesToTimeline() {
-		User user = new User("Alice");
 		TimelineManager timelineManager = new TimelineManager();
 		Message message = new Message("");
 		timelineManager.publish(user, message);
