@@ -17,4 +17,14 @@ public class TestTimelinePublishing {
 		Timeline timeline = new Timeline();
 		assertEquals(0, timeline.getSize());
 	}
+	
+	@Test
+	public void oneMessageIsReturnedWhenUserPublishesToTimeline() {
+		User user = new User("Alice");
+		TimelineManager timelineManager = new TimelineManager();
+		Message message = new Message("");
+		timelineManager.publish(user, message);
+		Timeline timeline = timelineManager.getTimeline(user);
+		assertEquals(1, timeline.getSize());
+	}
 }
