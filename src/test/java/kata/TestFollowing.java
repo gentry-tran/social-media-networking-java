@@ -14,13 +14,12 @@ public class TestFollowing {
 		User famousRapper2 = new User("Jay-Z");
 		User goddess = new User("Kim");
 		FollowingService service = new FollowingService();
-
+		
 		// Kanye follows Jay & Kim
 		service.followUser(famousRapper1, goddess);
 		service.followUser(famousRapper1, famousRapper2);
 		List<User> followees = service.getFollowees(famousRapper1);
-		
 		assertEquals("Kim", followees.get(0).getName());
-		assertEquals("Jay-Z", followees.get(2).getName());
+		assertEquals("Jay-Z", followees.get(1).getName());
 	}
 }
