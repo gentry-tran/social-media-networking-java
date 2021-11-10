@@ -13,7 +13,7 @@ public class FollowingService {
 		List<User> followees = getFollowees(follower);
 		
 		if(followees == null) {
-			List<User> peopleTheUserFollows = new ArrayList<User>();
+			List<User> peopleTheUserFollows = new ArrayList<>();
 			peopleTheUserFollows.add(followee);
 			mapOfAllFollowersAndFollowees.put(follower, peopleTheUserFollows);
 		} else {

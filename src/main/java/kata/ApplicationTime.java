@@ -4,11 +4,8 @@ import java.time.LocalTime;
 
 public class ApplicationTime {
 	
-	private static LocalTime applicationTime;
-	
-	static {
-		applicationTime = LocalTime.now(); // on startup
-	}
+	private static LocalTime applicationTime = LocalTime.now();
+
 	
 	static void setApplicationTime(LocalTime time) {
 		applicationTime = time;

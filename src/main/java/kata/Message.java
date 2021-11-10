@@ -20,14 +20,7 @@ public class Message {
 		return timeStamp;
 	}
 
-	public String getTimeElapsedInfo() {
-		
-		int minutesElapsedSincePosting = TimeElapsedCalculator.calculateElapsedTimeInMinutes(timeStamp);
-		
-		if(minutesElapsedSincePosting > 0) {
-			return "(" + minutesElapsedSincePosting + " minutes ago)"; 
-		}
-		
-		return null;
+	public String getTimeElapsedInfo() {	
+		return TimeElapsedCalculator.calculateElapsedTime(timeStamp);
 	}
 }

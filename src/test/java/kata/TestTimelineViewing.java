@@ -27,7 +27,7 @@ public class TestTimelineViewing {
 	@Test
 	public void userCanViewTimelineMessages() {
 		publishMessage(user, "I love the weather today.");
-		assertEquals("I love the weather today.", timelineManager.getTimeline(user).getMessages().get(0).getMessage());
+		assertTrue(timelineManager.getAggregatedTimeline(user).contains("I love the weather today."));
 	}
 	
 	@Test

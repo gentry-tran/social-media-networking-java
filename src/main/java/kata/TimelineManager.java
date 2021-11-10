@@ -30,8 +30,10 @@ public class TimelineManager {
 	public List<String> getAggregatedTimeline(User user) {
 		List<User> followees = user.getFollowees();
 		List<Message> messages = new ArrayList<>(getTimeline(user).getMessages());
-		for(User followee: followees) {
-			getTimeline(followee).getMessages().stream().forEach(message -> messages.add(message));;
+		if(followees != null && followees.size() > 0) {
+			for(User followee: followees) {
+				getTimeline(followee).getMessages().stream().forEach(message -> messages.add(message));;
+			}
 		}
 		
 
